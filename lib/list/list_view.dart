@@ -14,7 +14,7 @@ class ListPage extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.amber,
         ),
-        backgroundColor: Colors.tealAccent, //设置body的背景色
+//        backgroundColor: Colors.blueGrey, //设置body的背景色
         body: new ListPageWidget());
   }
 }
@@ -44,7 +44,7 @@ class ListPageState extends State<ListPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return new ListView(children: widgets); //集合用children
+    return new ListView(children: widgets); //集合用children   ListTile(）
   }
 
   // 给list item设置属性 设置点击事件 返回widget集合  不需要--adapter
@@ -103,7 +103,7 @@ class ListViewBuildState extends State<ListPageWidget> {
     return new ListView.builder(
         itemCount: widgets.length, //item数量
         itemBuilder: (BuildContext context, int position) {
-          if (position.isOdd) return new Divider();//添加分割线
+          if (position.isOdd) return new Divider(); //添加分割线 并且默认给加了加了上下两个padding
           return getRow(position);
         });
   }
@@ -111,18 +111,19 @@ class ListViewBuildState extends State<ListPageWidget> {
   //绘制item布局 带返回值
   Widget getRow(int i) {
     return new GestureDetector(
-      child: new Padding(
-        padding: new EdgeInsets.all(5.0),
-        child: new Row(
-          children: <Widget>[
-            new Text("我是第 $i个item"),
-            new Image.asset(
-              'images/logo.png',
-              fit: BoxFit.fill,
-            ),
-            new Icon(Icons.favorite, color: Colors.green),
-          ],
-        ),
+        child: new Container(
+         // padding: new EdgeInsets.all(7.0),//子空间的padding
+          child: new Row(
+            children: <Widget>[
+              new Text("我是第 $i个item"),
+              new Image.asset(
+                'images/logo.png',
+                fit: BoxFit.fill,
+              ),
+              new Icon(Icons.favorite, color: Colors.green),
+            ],
+          ),
+          color: Colors.green,
       ),
       onTap: () {
         setState(() {
