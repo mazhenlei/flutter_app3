@@ -1,0 +1,6 @@
+https://github.com/lijunjieone/flutterLearn
+
+修改apply plugin: 'com.android.library' 注释掉application id 再次编译取得aar
+打包成aar  记住要把所有的aar都拿出来 依赖到安卓项目里
+
+ios 方案不一样

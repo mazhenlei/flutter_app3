@@ -1,0 +1,18 @@
+https://github.com/OpenFlutter/Flutter-Notebook 学习库
+
+
+Icons flutter提供的个icon资源类  可以自己设置颜色
+
+界面和数据逻辑尽量分开写  StatefulWidget实现各种组件 分开 数据单独用类写
+
+
+定义集合
+List<Widget> list = List(); //创建组件集合
+List<Widget> list1 = [];
+ list
+      ..add()
+      ..add()
+      ..add()
+      ..add();  等价于for循环 list.add();
+
+
