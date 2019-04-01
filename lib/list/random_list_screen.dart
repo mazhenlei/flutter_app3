@@ -1,7 +1,6 @@
 //生成随机单词 StatefulWidget相当于activity
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app3/router_demo/second_page.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 ///显示随机单词 用列表展示

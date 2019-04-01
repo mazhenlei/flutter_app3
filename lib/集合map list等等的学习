@@ -2,3 +2,5 @@
  //创建泛型集合
  List<T> list = List();
  List<T> list1 = [];
+
+ List<String> _colors = <String>['', 'red', 'green', 'blue', 'orange'];

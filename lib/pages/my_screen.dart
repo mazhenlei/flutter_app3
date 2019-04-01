@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app3/ToastUtil.dart';
 import 'package:flutter_app3/dialog/overlay_util.dart';
 import 'package:flutter_app3/navigator_util.dart';
+import 'package:flutter_app3/net/bbq_person_info.dart';
+import 'package:flutter_app3/net/http_util.dart';
+import 'package:flutter_app3/net/student_services.dart';
 
 class MyPagesScreen extends StatelessWidget {
   @override
@@ -67,6 +71,38 @@ class MyState extends State<MyPageWidget> {
                 NavigatorUtil.goToOverLayPage(context);
               },
               child: new Text("showDialog"),
+            ),
+            new RaisedButton(
+              onPressed: () {
+                NavigatorUtil.goToHomePage(context);
+              },
+              child: new Text("HomePage"),
+            ),
+            new RaisedButton(
+              onPressed: () {
+                HttpUse.httpClient().then((response) {
+                  ToastUtil.showToastLong("解析成功"+response.result.toString());
+                });
+              },
+              child: new Text("httpclient"),
+            ),
+            new RaisedButton(
+              onPressed: () {
+                LoadJson.loadStudent();
+              },
+              child: new Text("loadStudent"),
+            ),
+            new RaisedButton(
+              onPressed: () {
+                LoadJson.loadBbq();
+              },
+              child: new Text("loadBbq"),
+            ),
+            new RaisedButton(
+              onPressed: () {
+                NavigatorUtil.goToListPageWithData(context,"网络数据的listview");
+              },
+              child: new Text("网络数据的listview"),
             ),
           ],
         );
