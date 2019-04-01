@@ -24,4 +24,8 @@ class MyApp extends StatelessWidget {
 //      },
     );
   }
+
+//            Navigator.of(context).pushNamed('/router/second').then((value) {
+//
+//            });
 }

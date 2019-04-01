@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app3/pages/email_screen.dart';
 import 'package:flutter_app3/pages/home_screen.dart';
+import 'package:flutter_app3/pages/my_screen.dart';
 import 'package:flutter_app3/pages/pages_screen.dart';
-import 'package:flutter_app3/pages/random_list_screen.dart';
 
 class BottomNavigationWidget extends StatefulWidget {
   @override
@@ -21,7 +21,7 @@ class BottomNavigationWidgetState extends State<BottomNavigationWidget> {
       ..add(HomeScreen())
       ..add(EmailScreen())
       ..add(PagesScreen())
-      ..add(RandomWordsScreen());
+      ..add(MyPagesScreen());
 //    list1.add(HomeScreen());
     super.initState();
   }

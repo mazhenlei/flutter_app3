@@ -2,12 +2,72 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app3/bottom_navigation_widget.dart';
 import 'package:intro_slider/intro_slider.dart';//第三方插件
 
-//引导页 类似viewpager
+///引导页 类似viewpager
 class SliderScreen extends StatefulWidget {
   @override
   _SliderScreenState createState() => new _SliderScreenState();
 }
 
+class _SliderScreenState extends State<SliderScreen> {
+  List<Slide> slides = new List();
+
+  @override
+  void initState() {
+    super.initState();
+
+    slides.add(
+      new Slide(
+        title: "FLUTTER",
+        description:
+        "Get Faster Development, Flexible UI & Access Native Features. Learn More! High-Quality Interfaces. Flexible UI. Fast Development.",
+        pathImage: "images/flutter.png",
+        backgroundColor: Color(0xff203152),
+      ),
+    );
+    slides.add(
+      new Slide(
+        title: "DART",
+        description:
+        "Developers at Google and elsewhere use Dart to create high-quality, mission-critical apps for iOS, Android, and the web. With features aimed at client-side development, Dart is a great fit for both mobile and web apps.",
+        pathImage: "images/dart.png",
+        backgroundColor: Color(0xff203152),
+      ),
+    );
+    slides.add(
+      new Slide(
+        title: "WELECOME",
+        description: "开始你的app",
+        pathImage: "images/flutterlogo.png",
+        backgroundColor: Color(0xfff5a623),
+      ),
+    );
+  }
+
+  void onDonePress() {
+    Navigator.of(context).pushAndRemoveUntil(
+        new MaterialPageRoute(builder: (context) => BottomNavigationWidget()),
+            (route) => route == null);
+  }
+
+  void onSkipPress() {
+    //跳转后删除路径  finish
+    Navigator.of(context).pushAndRemoveUntil(
+        new MaterialPageRoute(builder: (context) => BottomNavigationWidget()),
+            (route) => route == null);
+//    Navigator.of(context).push(new MaterialPageRoute(builder: (_) {
+//      return new BottomNavigationWidget(); //构造传参
+//    }));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return IntroSlider(
+      slides: this.slides,
+      onDonePress: this.onDonePress,
+      onSkipPress: this.onSkipPress,
+    );
+  }
+}
 // Custom config
 //class _MyAppState extends State<MyApp> {
 //  List<Slide> slides = new List();
@@ -140,63 +200,4 @@ class SliderScreen extends StatefulWidget {
 //  }
 //}
 
-class _SliderScreenState extends State<SliderScreen> {
-  List<Slide> slides = new List();
 
-  @override
-  void initState() {
-    super.initState();
-
-    slides.add(
-      new Slide(
-        title: "FLUTTER",
-        description:
-            "Get Faster Development, Flexible UI & Access Native Features. Learn More! High-Quality Interfaces. Flexible UI. Fast Development.",
-        pathImage: "images/flutter.png",
-        backgroundColor: Color(0xff203152),
-      ),
-    );
-    slides.add(
-      new Slide(
-        title: "DART",
-        description:
-            "Developers at Google and elsewhere use Dart to create high-quality, mission-critical apps for iOS, Android, and the web. With features aimed at client-side development, Dart is a great fit for both mobile and web apps.",
-        pathImage: "images/dart.png",
-        backgroundColor: Color(0xff203152),
-      ),
-    );
-    slides.add(
-      new Slide(
-        title: "WELECOME",
-        description: "开始你的app",
-        pathImage: "images/flutterlogo.png",
-        backgroundColor: Color(0xfff5a623),
-      ),
-    );
-  }
-
-  void onDonePress() {
-    Navigator.of(context).pushAndRemoveUntil(
-        new MaterialPageRoute(builder: (context) => BottomNavigationWidget()),
-        (route) => route == null);
-  }
-
-  void onSkipPress() {
-    //跳转后删除路径  finish
-    Navigator.of(context).pushAndRemoveUntil(
-        new MaterialPageRoute(builder: (context) => BottomNavigationWidget()),
-        (route) => route == null);
-//    Navigator.of(context).push(new MaterialPageRoute(builder: (_) {
-//      return new BottomNavigationWidget(); //构造传参
-//    }));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return IntroSlider(
-      slides: this.slides,
-      onDonePress: this.onDonePress,
-      onSkipPress: this.onSkipPress,
-    );
-  }
-}

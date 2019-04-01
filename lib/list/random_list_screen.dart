@@ -1,18 +1,17 @@
 //生成随机单词 StatefulWidget相当于activity
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app3/list/list_view.dart';
 import 'package:flutter_app3/router_demo/second_page.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-//显示随机单词 实现列表
-class RandomWordsScreen extends StatefulWidget {
+///显示随机单词 用列表展示
+class RandomWordsPage extends StatefulWidget {
   @override
   createState() => new RandomWordsState();
 }
 
 //实现一个有状态的widget
-class RandomWordsState extends State<RandomWordsScreen> {
+class RandomWordsState extends State<RandomWordsPage> {
   //下划线代表私有
   final _suggestions = <WordPair>[];
   final _biggerFont = const TextStyle(fontSize: 18.0); //字体大小
@@ -26,18 +25,6 @@ class RandomWordsState extends State<RandomWordsScreen> {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('RandomWordsScreen'),
-        leading: new IconButton(
-          icon: new Icon(Icons.menu),//todo 图片可以替换
-          tooltip: 'ddd',
-          onPressed: (){
-            Navigator.of(context).push(new MaterialPageRoute(builder: (_) {
-              return new ListPage(title: 'listView 学习');
-            }));
-          },
-        ),
-        actions: <Widget>[
-          new IconButton(icon: new Icon(Icons.account_box), onPressed: _pushSaved),
-        ],
       ),
       body: _buildSuggestions(),
     );
@@ -75,6 +62,9 @@ class RandomWordsState extends State<RandomWordsScreen> {
         pair.asPascalCase,
         style: _biggerFont,
       ),
+      leading: new Icon(
+              Icons.access_alarm,
+      ),
       trailing: new Icon(
         alreadySaved ? Icons.favorite : Icons.favorite_border,
         color: alreadySaved ? Colors.red : null,
@@ -97,42 +87,5 @@ class RandomWordsState extends State<RandomWordsScreen> {
     );
   }
 
-  //appbar的点击路由 建立一个路由并将其推入到导航管理器栈中  构建新的页面
-  void _pushSaved() {
-//    Navigator.of(context).pushNamed('/router/second');//通过路由跳转
-//    //带返回值跳转
-//    Navigator.of(context).pushNamed('/router/second').then((value) {
-//    });
-    //动态跳转带参数
-    Navigator.of(context).push(new MaterialPageRoute(builder: (_) {
-      return new SecondPage(title: '路由是个好东西，要进一步封装');
-    }));
 
-//    Navigator.of(context).push(
-//      new MaterialPageRoute(
-//        builder: (context) { //返回一个Scaffold
-//          final tiles = _saved.map(
-//                (pair) {
-//              return new ListTile(
-//                title: new Text(
-//                  pair.asPascalCase,
-//                  style: _biggerFont,
-//                ),
-//              );
-//            },
-//          );
-//          final divided = ListTile.divideTiles(
-//            context: context,
-//            tiles: tiles,
-//          ).toList();
-//          return new Scaffold(
-//            appBar: new AppBar(
-//              title: new Text('Saved Suggestions'),
-//            ),
-//            body: new ListView(children: divided),
-//          );
-//        },
-//      ),
-//    );
-  }
 }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+/*
+ * list view  两种实现方式
+ */
 class ListPage extends StatelessWidget {
   final String title;
 
@@ -24,7 +27,7 @@ class ListPageWidget extends StatefulWidget {
   State<StatefulWidget> createState() {
     // TODO: implement createState
 //    return ListPageState();
-    return ListViewBuildState(); //第二种实现方式 建议使用 相当于recycleiew
+    return ListViewBuildState(); //第二种实现方式 建议使用 相当于recycleView
   }
 }
 
@@ -103,7 +106,7 @@ class ListViewBuildState extends State<ListPageWidget> {
     return new ListView.builder(
         itemCount: widgets.length, //item数量
         itemBuilder: (BuildContext context, int position) {
-          if (position.isOdd) return new Divider(); //添加分割线 并且默认给加了加了上下两个padding
+          // if (position.isOdd) return new Divider(); //添加分割线 并且默认给加了加了上下两个padding
           return getRow(position);
         });
   }
@@ -111,9 +114,10 @@ class ListViewBuildState extends State<ListPageWidget> {
   //绘制item布局 带返回值
   Widget getRow(int i) {
     return new GestureDetector(
-        child: new Container(
-         // padding: new EdgeInsets.all(7.0),//子空间的padding
-          child: new Row(
+      child: new Container(
+        // padding: new EdgeInsets.all(7.0),//子空间的padding
+        child: new Column(children: <Widget>[
+          new Row(
             children: <Widget>[
               new Text("我是第 $i个item"),
               new Image.asset(
@@ -123,7 +127,10 @@ class ListViewBuildState extends State<ListPageWidget> {
               new Icon(Icons.favorite, color: Colors.green),
             ],
           ),
-          color: Colors.green,
+          new SizedBox(),
+        ]),
+
+        color: Colors.green,
       ),
       onTap: () {
         setState(() {
@@ -135,4 +142,7 @@ class ListViewBuildState extends State<ListPageWidget> {
       },
     );
   }
+
+
+  //ListTile 是Flutter 给我们准备好的widget 提供非常常见的构造和定义方式，包括文字，icon，点击事件，一般是能够满足基本需求，但是就不能自己定义了
 }

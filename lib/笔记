@@ -16,3 +16,11 @@ List<Widget> list1 = [];
       ..add();  等价于for循环 list.add();
 
 
+
+await Future.delayed(Duration(seconds: 2));   等待两秒
+Future.delayed(Duration(seconds: 1)).then((_) {
+      //两秒后
+    });
+
+
+const 是一个C语言（ANSI C）的关键字，具有着举足轻重的地位。 它限定一个变量不允许被改变，产生静态作用。

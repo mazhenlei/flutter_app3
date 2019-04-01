@@ -52,7 +52,7 @@ class _ImagePickerState extends State<ImagePickerWidget> {
 
   /*拍照*/
   _takePhoto() async {
-    var image = await ImagePicker.pickImage(source: ImageSource.camera);
+    var image = await ImagePicker.pickImage(source: ImageSource.camera);//耗时操作
 
     setState(() {
       _imgPath = image;

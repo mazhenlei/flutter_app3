@@ -87,20 +87,20 @@ class _ImageState extends State<ImageViewWidget> {
                   ),
                   flex: 1,
                 ),
-                new Expanded(
-                  child: new Padding(
-                    //设置padding
-                    padding: const EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0),
-                    //参数左上右下
-                    child: new FadeInImage.assetNetwork(
-                      placeholder: 'images/logo.png',
-                      image: imageUrl,
-                      width: 120,
-                      fit: BoxFit.fitWidth,
-                    ),
-                  ),
-                  flex: 1,
-                )
+//                new Expanded(
+//                  child: new Padding(
+//                    //设置padding
+//                    padding: const EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0),
+//                    //参数左上右下
+//                    child: new FadeInImage.assetNetwork(
+//                      placeholder: 'images/logo.png',
+//                      image: imageUrl,
+//                      width: 120,
+//                      fit: BoxFit.fitWidth,
+//                    ),
+//                  ),
+//                  flex: 1,
+//                )
               ],
               mainAxisAlignment: MainAxisAlignment.center,
             ),
