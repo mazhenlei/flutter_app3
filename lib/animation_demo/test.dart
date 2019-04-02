@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+///双击旋转
 class SampleApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

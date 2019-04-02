@@ -89,6 +89,7 @@ class OverlayDialog {
     });
   }
 
+  ///防微信下来菜单
   static void showPopView(BuildContext context) {
     OverlayEntry overlayEntry = new OverlayEntry(builder: (context) {
       return new Positioned( //位置
@@ -216,15 +217,5 @@ class OverlayDialog {
 //      );
       },
     );
-  }
-}
-
-
-///自定义dialog
-class MyDialog extends Dialog{
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return super.build(context);
   }
 }

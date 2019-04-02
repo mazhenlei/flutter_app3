@@ -8,6 +8,7 @@ class LoadingDialog extends Dialog {
   bool outsideDismiss;
   Function dismissCallback;
 
+  //构造方法
   LoadingDialog(
       {Key key,
       this.loadingText = "loading...",

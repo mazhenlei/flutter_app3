@@ -2,22 +2,24 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:flutter_app3/ToastUtil.dart';
-import 'package:flutter_app3/net/bbq_person_info.dart';
+import 'package:flutter_app3/net/model/bbq_person_model.dart';
 import 'package:http/http.dart' as http;
 
 class HttpUse  {
 
-//  void _pullNet()  {
-//    http.get("http://www.wanandroid.com/project/list/1/json?cid=1")
-//        .then((http.Response response) {
-//      var convertDataToJson = JSON.decode(response.body);
-//      convertDataToJson = convertDataToJson["data"]["datas"];
-//      //打印请求的结果
-//      print(convertDataToJson);
-//    });
-//  }
+  ///http请求
+  void pullNet()  {
+    //get 请求
+    http.get("http://www.wanandroid.com/project/list/1/json?cid=1")
+        .then((http.Response response) {
+      var convertDataToJson = json.decode(response.body);
+      convertDataToJson = convertDataToJson["data"]["datas"];
+      //打印请求的结果
+      print(convertDataToJson);
+    });
+  }
 
+  ///httpclient请求
   //创建 client.
   //构造 Uri.
   //发起请求, 等待请求，同时您也可以配置请求headers、 body。
@@ -35,10 +37,9 @@ class HttpUse  {
     var response = await request.close();//关闭请求等待响应
     //判断是否请求成功
     if (response.statusCode == HttpStatus.ok) {
-//      ToastUtil.showToastLong("请求成功");
+       print("success");
       //拿到请求的数据
       responseBody = await response.transform(utf8.decoder).join();
-//      ToastUtil.showToastLong(responseBody);//展示json
       final jsonResponse = json.decode(responseBody);//解码我们得到的 json 字符串
        bbqPerson = new BbqPerson.fromJson(jsonResponse);//现在我们通过调用 Student.fromJson 方法反序列化解码的 json 响应
       //解析json，拿到对应的jsonArray数据

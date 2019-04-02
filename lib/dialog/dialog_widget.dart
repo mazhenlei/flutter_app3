@@ -53,12 +53,12 @@ class OverState extends State<OverLayWidget> {
           },
           child: new Text("OverLayPopView"),
         ),
-        new RaisedButton(
-          onPressed: () {
-            OverlayDialog.showMyOverLay(context);
-          },
-          child: new Text("showMyOverLay"),
-        ),
+//        new RaisedButton(
+//          onPressed: () {
+//            OverlayDialog.showMyOverLay(context);
+//          },
+//          child: new Text("showMyOverLay"),
+//        ),
         new RaisedButton(
           onPressed: () {
             OverlayDialog.showMyDialog(context, true);

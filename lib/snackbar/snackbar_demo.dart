@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app3/ToastUtil.dart';
+import 'package:flutter_app3/util/ToastUtil.dart';
 
 class SnackBarPage extends StatefulWidget {
   @override
@@ -15,7 +15,7 @@ class SnackBarPageState extends State<SnackBarPage> {
     child: new Text('screenshot'),
   );
 
-  GlobalKey globalKey = new GlobalKey();
+  GlobalKey globalKey = new GlobalKey(); //组件的key 存在map里 一一对应
 
   Future<void> _capturePng() async {
     // RenderRepaintBoundary boundary =

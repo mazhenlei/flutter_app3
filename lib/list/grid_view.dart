@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-//和listiew类似有两种方式实现
+///和listView类似有两种方式实现
 class GridPage extends StatelessWidget {
 
   final String title;
 
-  GridPage({this.title});
+  const GridPage({Key key, this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,6 @@ class GridPage extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.green,
         ),
- //       backgroundColor: Colors.blueGrey, //设置body的背景色
         body: new GridWidget());
   }
 }

@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app3/ToastUtil.dart';
+import 'package:flutter_app3/util/ToastUtil.dart';
 import 'package:flutter_app3/text/edit_text_element.dart';
 import 'package:flutter_app3/text/text_element.dart';
 import 'package:transparent_image/transparent_image.dart';
@@ -68,6 +68,7 @@ class _ImageState extends State<ImageViewWidget> {
             padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
             //设置距离上面控件的padding 距离
             child: new Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 new Expanded(
                   child: new FadeInImage.memoryNetwork(
@@ -102,7 +103,6 @@ class _ImageState extends State<ImageViewWidget> {
 //                  flex: 1,
 //                )
               ],
-              mainAxisAlignment: MainAxisAlignment.center,
             ),
           ),
           new Padding(

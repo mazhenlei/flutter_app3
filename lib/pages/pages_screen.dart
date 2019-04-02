@@ -14,6 +14,7 @@ class PagesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Animal基础学习'),
+        centerTitle: true,
         backgroundColor: Colors.yellow,
       ),
       body: AnimalListPage(),

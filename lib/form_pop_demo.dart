@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
 
+
 class MyHomePage extends StatefulWidget {
+
   final String title;
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -22,13 +24,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("表单使用"),
+        title: new Text("form"),
       ),
       body: new SafeArea(
           top: false,
           bottom: false,
           child: new Form(
-            onWillPop: _onBackPressed, //这个表单解除的方法
+            onWillPop: _onBackPressed, //这个表单解除的方法  离开此页面的时候会触发这个方法
               key: _formKey,
               autovalidate: true,
               child: new ListView(
@@ -102,6 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ))),
     );
   }
+  ///弹窗
   Future<bool> _onBackPressed() {
     return showDialog(
         context: context,

@@ -76,7 +76,7 @@ class BottomNavigationWidgetState extends State<BottomNavigationWidget> {
             _currentIndex = index;
           });
         },
-        type: BottomNavigationBarType.shifting,
+        type: BottomNavigationBarType.shifting,//类型风格
       ),
     );
   }

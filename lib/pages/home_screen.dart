@@ -55,6 +55,7 @@ class _SampleAppPageState extends State<HomeScreenPage> {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("HOME"),
+        centerTitle: true,
         backgroundColor: Colors.blue,
         actions: <Widget>[
           new IconButton(

@@ -12,6 +12,8 @@ new Padding(
             padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0), //左上右下
             child : new 控件
             ）
+padding: const EdgeInsets.all(8.0),
+const EdgeInsets.all(8.0)  ///定义一个距离  const静态
 
 //学习布局 线性布局 权重设置等等 https://juejin.im/post/5b3edeb16fb9a04fe820ccbc
 mainAxisAlignment  ----- gravity

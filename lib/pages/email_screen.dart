@@ -14,6 +14,7 @@ class EmailScreen extends StatelessWidget {
 //            fontStyle: FontStyle.italic,  //斜体
           ),
         ),
+        centerTitle: true,
         backgroundColor: Colors.brown,
       ),
       body: ImageViewWidget(),

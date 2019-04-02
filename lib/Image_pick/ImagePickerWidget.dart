@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-//拍照 带状态的widget
+///拍照 图库选择
 class ImagePickerWidget extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

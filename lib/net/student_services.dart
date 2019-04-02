@@ -1,11 +1,11 @@
 
 import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:flutter_app3/ToastUtil.dart';
-import 'package:flutter_app3/net/bbq_person_info.dart';
+import 'package:flutter_app3/util/ToastUtil.dart';
+import 'package:flutter_app3/net/model/bbq_person_model.dart';
 import 'dart:convert';
 
-import 'package:flutter_app3/net/student_model.dart';
+import 'package:flutter_app3/net/model/student_model.dart';
 
 class LoadJson{
 
