@@ -7,17 +7,18 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: HomeScreenPage(),
+      body: ImagePickerWidget(),
     );
   }
 }
+
 
 class HomeScreenPage extends StatefulWidget {
   @override
   _SampleAppPageState createState() => new _SampleAppPageState();
 }
 
-class _SampleAppPageState extends State<HomeScreenPage> {
+class _SampleAppPageState extends State<HomeScreenPage>  with AutomaticKeepAliveClientMixin {
   // Default placeholder text
 //  String textToShow = "I Like Flutter";
   bool toggle = true;
@@ -83,4 +84,8 @@ class _SampleAppPageState extends State<HomeScreenPage> {
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

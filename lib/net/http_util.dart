@@ -1,9 +1,11 @@
 //导入网络请求相关的包
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter_app3/net/model/bbq_person_model.dart';
 import 'package:http/http.dart' as http;
+
+
+import 'package:dio/dio.dart';
 
 class HttpUse  {
 
@@ -48,6 +50,16 @@ class HttpUse  {
       print("error");
     }
     return bbqPerson;
+  }
+
+  ///运用第三方库进行网络请求
+  void getHttp() async {
+    try {
+      Response response = await Dio().get("http://www.google.com");
+      print(response);
+    } catch (e) {
+      print(e);
+    }
   }
 
 

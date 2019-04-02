@@ -10,13 +10,15 @@ class BottomNavigationWidget extends StatefulWidget {
 }
 
 class BottomNavigationWidgetState extends State<BottomNavigationWidget> {
-  final _bottomNavigationColor = Colors.blue;//定义导航栏颜色 默认图标是灰色
+  final _bottomNavigationColor = Colors.blue; //定义导航栏颜色 默认图标是灰色
   int _currentIndex = 0;
   List<Widget> list = List(); //创建组件集合
   List<Widget> list1 = []; //创建组件集合  第二种定义方式
+
+  var _pageController = new PageController(initialPage: 0);
+
   @override
   void initState() {
-    //这种写法相当于for循环添加
     list
       ..add(HomeScreen())
       ..add(EmailScreen())
@@ -26,11 +28,35 @@ class BottomNavigationWidgetState extends State<BottomNavigationWidget> {
     super.initState();
   }
 
+  void _pageChange(int index) {
+    setState(() {
+      if (_currentIndex != index) {
+        _currentIndex = index;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: list[_currentIndex],//装界面 切换body
-      bottomNavigationBar: BottomNavigationBar(//底部导航栏
+//      body: list[_currentIndex],//装界面 切换body  下面是配合viewpager实现
+      body: new PageView.builder(
+        onPageChanged: _pageChange,
+        controller: _pageController,
+        itemBuilder: (BuildContext context, int index) {
+          return list[index];
+        },
+        itemCount: list.length,
+      ),
+
+//      body: new PageView(//第二种方式
+//        onPageChanged: _pageChange,
+//        controller: _pageController,
+//        children: list,
+//      ),
+
+      bottomNavigationBar: BottomNavigationBar(
+        //底部导航栏 官方提供的
         items: [
           BottomNavigationBarItem(
 //              backgroundColor: Colors.cyanAccent,  //导航栏设置背景色 必须在这里设置才有效
@@ -71,13 +97,15 @@ class BottomNavigationWidgetState extends State<BottomNavigationWidget> {
               )),
         ],
         currentIndex: _currentIndex,
-        onTap: (int index) {//点击事件刷新 body
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        type: BottomNavigationBarType.shifting,//类型风格
+        onTap: onTap,
+        type: BottomNavigationBarType.fixed, //类型风格  展示text
       ),
     );
+  }
+
+  // bottomnaviagtionbar 和 pageview 的联动
+  void onTap(int index) {// 过pageview的pagecontroller的animateToPage方法可以跳转
+    _pageController.animateToPage(index,
+        duration: const Duration(milliseconds: 100), curve: Curves.ease);
   }
 }

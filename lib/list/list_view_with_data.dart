@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app3/dialog/load_dialog.dart';
 import 'package:flutter_app3/util/ToastUtil.dart';
 import 'package:flutter_app3/net/model/bbq_person_model.dart';
 import 'package:flutter_app3/net/http_util.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 /*
  * list view  两种实现方式
@@ -42,30 +42,48 @@ class ListViewBuildState extends State<ListPageWidget> {
 
   List<DataBean> dataList = new List();
 
+  bool _loading = true; //默认显示进度条
+
   @override
   void initState() {
     super.initState();
-
+    //异步网络请求
     HttpUse.httpClient().then((response) {
-      ToastUtil.showToastLong("解析成功" + response.result.toString());
       bbqPerson = response;
       dataList = response.data;
       for (int i = 0; i < dataList.length; i++) {
         widgets.add(ListItemWidget(dataList[i]));
       }
       //刷新界面
-      setState(() {});
+      setState(() {
+        _loading = !_loading;
+      });
     });
+  }
+
+  ///加载进度 请求成功再替换布局
+  Widget _childLayout() {
+    if (_loading) {
+      return LoadingDialog();
+//      return Center(
+//        child: Container(
+//          child: CircularProgressIndicator(),
+//        ),
+//      );
+    } else {
+      return new ListView.builder(
+          itemCount: widgets.length, //item数量
+          itemBuilder: (BuildContext context, int position) {
+            if (position.isOdd)
+              return new Divider(); //添加分割线 并且默认给加了加了上下两个padding
+            return ListItemWidget(dataList[position]);
+          });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return new ListView.builder(
-        itemCount: widgets.length, //item数量
-        itemBuilder: (BuildContext context, int position) {
-          if (position.isOdd) return new Divider(); //添加分割线 并且默认给加了加了上下两个padding
-          return ListItemWidget(dataList[position]);
-        });
+    return _childLayout();
   }
 
 //ListTile 是Flutter 给我们准备好的widget 提供非常常见的构造和定义方式，包括文字，icon，点击事件，一般是能够满足基本需求，但是就不能自己定义了
@@ -81,7 +99,8 @@ class ListItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     //(dataBean.rank == "1" ? "胜利" :"失败")
     return new ListTile(
-      title: new Text(dataBean.nickname+"---名次"+dataBean.rank, style: TextStyle(color: Colors.green)),
+      title: new Text(dataBean.nickname + "---名次" + dataBean.rank,
+          style: TextStyle(color: Colors.green)),
       subtitle:
           new Text(dataBean.fight_level, style: TextStyle(color: Colors.black)),
       leading: new FadeInImage.assetNetwork(

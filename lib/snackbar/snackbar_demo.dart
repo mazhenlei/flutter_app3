@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_app3/util/ToastUtil.dart';
 
 class SnackBarPage extends StatefulWidget {
@@ -18,12 +19,12 @@ class SnackBarPageState extends State<SnackBarPage> {
   GlobalKey globalKey = new GlobalKey(); //组件的key 存在map里 一一对应
 
   Future<void> _capturePng() async {
-    // RenderRepaintBoundary boundary =
-    //     globalKey.currentContext.findRenderObject();
-    // ui.Image image = await boundary.toImage();
-    // ByteData byteData = await image.toByteData(format: ui.ImageByteFormat.png);
-    // Uint8List pngBytes = byteData.buffer.asUint8List();
-    // print(pngBytes);
+//     RenderRepaintBoundary boundary =
+//         globalKey.currentContext.findRenderObject();
+//     ui.Image image = await boundary.toImage();
+//     ByteData byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+//     Uint8List pngBytes = byteData.buffer.asUint8List();
+//     print(pngBytes);
   }
 
   @override

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 
 ///拍照 图库选择
@@ -9,14 +10,30 @@ class ImagePickerWidget extends StatefulWidget {
   }
 }
 
-class _ImagePickerState extends State<ImagePickerWidget> {
+class _ImagePickerState extends State<ImagePickerWidget> with AutomaticKeepAliveClientMixin {
   var _imgPath;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        //可以装标题 body 以及导航栏 悬浮按钮等复杂的组件
+        backgroundColor: Colors.yellow,
         appBar: AppBar(
+          backgroundColor: Colors.blue,
           title: Text("ImagePicker"),
+          centerTitle: true,
+          actions: <Widget>[
+            new IconButton(
+                icon: new Icon(
+                  Icons.search,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  Fluttertoast.showToast(
+                    msg: "search",
+                  );
+                })
+          ],
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -49,10 +66,9 @@ class _ImagePickerState extends State<ImagePickerWidget> {
     }
   }
 
-
   /*拍照*/
   _takePhoto() async {
-    var image = await ImagePicker.pickImage(source: ImageSource.camera);//耗时操作
+    var image = await ImagePicker.pickImage(source: ImageSource.camera); //耗时操作
 
     setState(() {
       _imgPath = image;
@@ -66,4 +82,8 @@ class _ImagePickerState extends State<ImagePickerWidget> {
       _imgPath = image;
     });
   }
+
+  @override
+  // TODO: implement wantKeepAlive 状态保活
+  bool get wantKeepAlive => true;
 }

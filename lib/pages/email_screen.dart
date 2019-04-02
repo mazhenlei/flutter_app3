@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app3/image/image_load.dart';
+import 'package:flutter_app3/tablayout/tab_bar.dart';
 
 class EmailScreen extends StatelessWidget {
   @override
@@ -17,7 +17,7 @@ class EmailScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.brown,
       ),
-      body: ImageViewWidget(),
+      body: TabLayoutPage(),
     );
   }
 }

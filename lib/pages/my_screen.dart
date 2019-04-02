@@ -12,15 +12,16 @@ class MyPagesScreen extends StatelessWidget {
         title: Text('基础学习'),
         centerTitle: true,
         leading: new IconButton(
-          icon: new Icon(Icons.menu),//todo 图片可以替换
+          icon: new Icon(Icons.menu), //todo 图片可以替换
           tooltip: 'ddd',
-          onPressed: (){
-          },
+          onPressed: () {},
         ),
         actions: <Widget>[
-          new IconButton(icon: new Icon(Icons.account_box), onPressed: (){
-            NavigatorUtil.goToSecondPage(context,"路由是个好东西，要进一步封装");
-          }),
+          new IconButton(
+              icon: new Icon(Icons.account_box),
+              onPressed: () {
+                NavigatorUtil.goToSecondPage(context, "路由是个好东西，要进一步封装");
+              }),
         ],
         backgroundColor: Colors.yellow,
       ),
@@ -28,7 +29,6 @@ class MyPagesScreen extends StatelessWidget {
     );
   }
 }
-
 
 class MyPageWidget extends StatefulWidget {
   @override
@@ -42,14 +42,16 @@ class MyState extends State<MyPageWidget> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build  Column竖着的 Align  居中就套一层Align--- A widget that aligns its child within itself and optionally sizes itself based on the child's size.
-    return new Column(
+    return new ListView(
+      children: <Widget>[
+        new Column(
 //      mainAxisSize: MainAxisSize.max,
 //      mainAxisAlignment: MainAxisAlignment.center, //内部控件居中
-        crossAxisAlignment: CrossAxisAlignment.start,//内部空间左对齐
+          crossAxisAlignment: CrossAxisAlignment.start, //内部空间左对齐
           children: <Widget>[
             new RaisedButton(
               onPressed: () {
-                NavigatorUtil.goToListPage(context,"ListView");
+                NavigatorUtil.goToListPage(context, "ListView");
               },
               child: new Text("ListView"),
             ),
@@ -61,7 +63,7 @@ class MyState extends State<MyPageWidget> {
             ),
             new RaisedButton(
               onPressed: () {
-                NavigatorUtil.goToGridPage(context,"GridView");
+                NavigatorUtil.goToGridPage(context, "GridView");
               },
               child: new Text("GridView"),
             ),
@@ -80,7 +82,7 @@ class MyState extends State<MyPageWidget> {
             new RaisedButton(
               onPressed: () {
                 HttpUse.httpClient().then((response) {
-                  ToastUtil.showToastLong("解析成功"+response.result.toString());
+                  ToastUtil.showToastLong("解析成功" + response.result.toString());
                 });
               },
               child: new Text("httpclient"),
@@ -99,23 +101,25 @@ class MyState extends State<MyPageWidget> {
             ),
             new RaisedButton(
               onPressed: () {
-                NavigatorUtil.goToListPageWithData(context,"网络数据的listview");
+                NavigatorUtil.goToListPageWithData(context, "网络数据的listview");
               },
               child: new Text("网络数据的listview"),
             ),
             new RaisedButton(
               onPressed: () {
-                NavigatorUtil.goToSlideDrawer(context,"侧滑栏");
+                NavigatorUtil.goToSlideDrawer(context, "侧滑栏");
               },
               child: new Text("侧滑栏"),
             ),
             new RaisedButton(
               onPressed: () {
-                NavigatorUtil.goToTabLayoutPage(context,"TabLayout");
+                NavigatorUtil.goToTabLayoutPage(context, "TabLayout");
               },
               child: new Text("TabLayout"),
             ),
           ],
-        );
+        )
+      ],
+    );
   }
 }

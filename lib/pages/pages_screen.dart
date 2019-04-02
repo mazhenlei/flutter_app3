@@ -13,7 +13,11 @@ class PagesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Animal基础学习'),
+        title: Text('Animal基础学习',style: TextStyle(
+//          color: Colors.blue, //字体颜色
+          fontWeight: FontWeight.bold,//加粗
+          fontStyle: FontStyle.italic,  //斜体
+        )),
         centerTitle: true,
         backgroundColor: Colors.yellow,
       ),
@@ -38,6 +42,7 @@ class AnimalPage extends State<AnimalListPage> {
         child: new Column(
 //      mainAxisSize: MainAxisSize.max,
 //      mainAxisAlignment: MainAxisAlignment.center, //内部控件居中
+//          crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         new RaisedButton(
           onPressed: () {
@@ -48,6 +53,7 @@ class AnimalPage extends State<AnimalListPage> {
           child: new Text("动画1"),
         ),
         new RaisedButton(
+          color: Colors.blue,
           onPressed: () {
             Navigator.of(context).push(new MaterialPageRoute(builder: (_) {
               return new HomeScreenTwo(title: "动画2",); //构造传参
@@ -56,6 +62,7 @@ class AnimalPage extends State<AnimalListPage> {
           child: new Text("动画2"),
         ),
         new RaisedButton(
+          color: Colors.brown,
           onPressed: () {
             Navigator.of(context).push(new MaterialPageRoute(builder: (_) {
               return new HomeScreenThree(); //构造传参
@@ -64,6 +71,7 @@ class AnimalPage extends State<AnimalListPage> {
           child: new Text("动画3"),
         ),
         new RaisedButton(
+          color: Colors.deepPurpleAccent,
           onPressed: () {
             Navigator.of(context).push(new MaterialPageRoute(builder: (_) {
               return new HomeScreenFour(); //构造传参
@@ -72,6 +80,7 @@ class AnimalPage extends State<AnimalListPage> {
           child: new Text("动画4"),
         ),
         new RaisedButton(
+          color: Colors.deepOrange,
           onPressed: () {
             Navigator.of(context).push(new MaterialPageRoute(builder: (_) {
               return new HomeScreenFive(); //构造传参
@@ -80,6 +89,7 @@ class AnimalPage extends State<AnimalListPage> {
           child: new Text("动画5"),
         ),
         new RaisedButton(
+          color: Colors.green,
           onPressed: () {
             Navigator.of(context).push(new MaterialPageRoute(builder: (_) {
               return new HomeScreenSix(); //构造传参
@@ -88,6 +98,7 @@ class AnimalPage extends State<AnimalListPage> {
           child: new Text("动画6"),
         ),
         new RaisedButton(
+          color: Colors.blueGrey,
           onPressed: () {
             Navigator.of(context).push(new MaterialPageRoute(builder: (_) {
               return new HomeScreenSeven(); //构造传参
@@ -97,12 +108,13 @@ class AnimalPage extends State<AnimalListPage> {
         ),
 
         new RaisedButton(
+          color: Colors.yellowAccent,
           onPressed: () {
             Navigator.of(context).push(new MaterialPageRoute(builder: (_) {
               return new SampleApp(); //构造传参
             }));
           },
-          child: new Text("测试东阿虎"),
+          child: new Text("旋转动画"),
         ),
       ],
     ));

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app3/image/image_load.dart';
 import 'package:flutter_app3/tablayout/TabPage.dart';
 
 class TabLayoutPage extends StatefulWidget {
@@ -11,13 +12,14 @@ class TabLayoutPage extends StatefulWidget {
 
 class TabPageState extends State<TabLayoutPage>
     with SingleTickerProviderStateMixin {
+
   TabController _tabController; //控制器
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _tabController = new TabController(length: 3, vsync: this);
+    _tabController = new TabController(length: 3, vsync: this); //自定义控制器 长度3
   }
 
   @override
@@ -25,9 +27,13 @@ class TabPageState extends State<TabLayoutPage>
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-          title: Text("tabLayout"),
-          bottom: TabBar(
-              indicatorColor: Colors.red, //指示器颜色
+//          backgroundColor: Colors.blue,
+//          title: Text("TabLayout"),
+          title: TabBar(
+              labelColor: Colors.red,
+              unselectedLabelColor: Colors.black,
+              indicatorColor: Colors.red,
+              //指示器颜色
               controller: _tabController,
               tabs: <Widget>[
                 Tab(
@@ -42,10 +48,14 @@ class TabPageState extends State<TabLayoutPage>
                   text: "tab3",
                   icon: Icon(Icons.assignment_return),
                 ),
-              ])),
+              ]
+          )
+      ),
       body: TabBarView(
-          controller: _tabController,
-          children: <Widget>[TabPage(), TabPage(), TabPage()]),
+              controller: _tabController,
+              children: <Widget>[ImageViewWidget(), TabPage(), TabPage()
+              ]
+      ),
     );
   }
 

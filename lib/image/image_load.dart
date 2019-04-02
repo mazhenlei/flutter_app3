@@ -29,14 +29,12 @@ class _ImageState extends State<ImageViewWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      child: ListView(
-        //属性垂直 纵向 在Flutter中，一个ListView既是一个ScrollView，也是一个Android ListView
+      child: ListView(//属性垂直 纵向 在Flutter中，一个ListView既是一个ScrollView，也是一个Android ListView
         padding: const EdgeInsets.all(10.0), //listView设置padding
         children: <Widget>[
           new Text("网络图片"),
-          new Row(
-              //行
-              mainAxisAlignment: MainAxisAlignment.center, //居中显示
+          new Row(//行
+//              mainAxisAlignment: MainAxisAlignment.center, //居中显示
               children: <Widget>[
                 new Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -46,7 +44,6 @@ class _ImageState extends State<ImageViewWidget> {
               ]),
           new Text("本地图片加载"),
           new Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 new Padding(
                   padding: const EdgeInsets.all(10.0), //上下左右都是10.0
@@ -62,7 +59,8 @@ class _ImageState extends State<ImageViewWidget> {
 //                  //fill(全图显示且填充满，图片可能会拉伸)，contain（全图显示但不充满，显示原比例），cover（显示可能拉伸，也可能裁剪，充满）
 //                  //fitWidth（显示可能拉伸，可能裁剪，宽度充满），fitHeight显示可能拉伸，可能裁剪，高度充满），scaleDown（效果和contain差不多，但是）
 //                ),
-              ]),
+              ]
+          ),
           new Text('网络占位图片FadeInImage'),
           new Padding(
             padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
@@ -74,7 +72,7 @@ class _ImageState extends State<ImageViewWidget> {
                   child: new FadeInImage.memoryNetwork(
                     placeholder: kTransparentImage,
                     image: imageUrl,
-                    width: 120,
+//                    width: 80,
                     fit: BoxFit.fitWidth,
                   ),
                   flex: 1,
@@ -83,7 +81,7 @@ class _ImageState extends State<ImageViewWidget> {
                   child: new FadeInImage.assetNetwork(
                     placeholder: 'images/logo.png',
                     image: imageUrl,
-                    width: 120,
+//                    width: 80,
                     fit: BoxFit.fitWidth,
                   ),
                   flex: 1,
@@ -106,10 +104,9 @@ class _ImageState extends State<ImageViewWidget> {
             ),
           ),
           new Padding(
-            padding: const EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 10.0), //距离上面40
-            child: new Center(
-              child: new RaisedButton(
-                //按钮
+            padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0), //距离上面40
+//            child: new Center(//居中显示
+              child: new RaisedButton(//按钮
                 onPressed: () {
                   setState(() {
                     networkImage =
@@ -118,10 +115,15 @@ class _ImageState extends State<ImageViewWidget> {
                 },
                 child: Text('点击更换图片'),
               ),
-            ),
+//            ),
           ),
-          new TextField(
-            //输入框
+
+          new RaisedButton(//按钮
+            onPressed: null,//不可点击会自己动变灰色
+            child: Text('点击更换图片'),
+          ),
+
+          new TextField(//输入框
             decoration: InputDecoration(
               hintText: 'icon设置',
               hintStyle: TextStyle(
@@ -172,7 +174,7 @@ class _ImageState extends State<ImageViewWidget> {
                 child: new GestureDetector(
                   //给text加点击事件
                   child: Text(
-                    "TextFiled组件详解--text",
+                    "Text组件详解",
                     softWrap: true, //自动换行
                   ),
                   onTap: () {
