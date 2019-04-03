@@ -14,3 +14,6 @@ flutter请求网络有两种，一种是http请求，一种是HttpClient请求
 
     });
   }
+
+
+https://javiercbk.github.io/json_to_dart/  一个在线json转dart实体类的工具

@@ -1,4 +1,4 @@
-参考链接 https://github.com/lijunjieone/flutterLearn
+参考链接 https://github.com/lijunjieone/flutterLearn  集成flutter到原生项目
 
 修改apply plugin: 'com.android.library' 注释掉application id 再次编译取得aar
 打包成aar  记住要把所有的aar都拿出来 依赖到安卓项目里

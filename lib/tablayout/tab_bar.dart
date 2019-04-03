@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app3/image/image.dart';
 import 'package:flutter_app3/image/image_load.dart';
 import 'package:flutter_app3/tablayout/TabPage.dart';
 
@@ -53,7 +54,7 @@ class TabPageState extends State<TabLayoutPage>
       ),
       body: TabBarView(
               controller: _tabController,
-              children: <Widget>[ImageViewWidget(), TabPage(), TabPage()
+              children: <Widget>[ImageViewWidget(), TabPage(), ImagePage()
               ]
       ),
     );
